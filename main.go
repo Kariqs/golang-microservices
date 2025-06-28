@@ -21,6 +21,13 @@ func main() {
 
 	getRouter := sm.Methods(http.MethodGet).Subrouter()
 	getRouter.HandleFunc("/api/products", ph.GetProducts)
+	getRouter.HandleFunc("/api/product/{id:[0-9]+}",ph.GetProductById)
+
+	postRouter := sm.Methods(http.MethodPost).Subrouter()
+	postRouter.HandleFunc("/api/product", ph.CreateProduct)
+
+	putRouter := sm.Methods(http.MethodPut).Subrouter()
+	putRouter.HandleFunc("/api/product/{id:[0-9]+}", ph.UpdateProduct)
 
 	//Create Server
 	server := http.Server{
