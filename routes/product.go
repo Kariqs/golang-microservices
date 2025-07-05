@@ -8,4 +8,5 @@ import (
 func RegisterProductRoutes(router fiber.Router) {
 	router.Post("/", handlers.CreateProduct)
 	router.Get("/", handlers.GetProducts)
+	router.Get("/:tag", handlers.GetProductByTag)
 }

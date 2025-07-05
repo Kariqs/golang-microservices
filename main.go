@@ -25,7 +25,7 @@ func main() {
 	})
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "https://yourdomain.com, http://localhost:3000",
+		AllowOrigins: "https://yourdomain.com, http://localhost:4200",
 		AllowMethods: "GET,POST,PUT,DELETE",
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 	}))
