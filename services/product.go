@@ -17,3 +17,11 @@ func GetProducts(products *[]models.Product) *gorm.DB {
 func FindProductByTag(tag string, productExists *models.Product) *gorm.DB {
 	return initializers.DB.Where("tag=?", tag).First(productExists)
 }
+
+func UpdateProduct(tag string, productInfo *models.Product) *gorm.DB {
+	return initializers.DB.Where("tag=?", tag).Model(&models.Product{}).Updates(productInfo)
+}
+
+func DeleteProduct(tag string) *gorm.DB {
+	return initializers.DB.Where("tag=?", tag).Delete(&models.Product{})
+}
